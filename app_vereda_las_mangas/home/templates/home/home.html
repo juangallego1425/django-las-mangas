@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vereda Las Mangas</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+  {% include "home/navbar.html" %}
+  <style>
+    .activator {
+      width: 100%;
+      height: 15vw;
+      object-fit: cover;
+    }
+
+    body {
+      display: flex;
+      position: relative;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+  </style>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.parallax');
+      var options = "";
+      var instances = M.Parallax.init(elems, options);
+    });
+  </script>
+
+
+</head>
+
+<body>
+
+  <div class="parallax-container">
+    <div class="parallax"><img src="{{home.0.imagen_parallax1.url}}"></div>
+  </div>
+  <div class="section white">
+    <div class="row container">
+      <h2 class="header">Las Mangas</h2>
+      <p class="grey-text text-darken-3 lighten-3">Vereda es un término usado en Colombia para definir un tipo de
+        subdivisión territorial de los diferentes municipios del país.1​ Las veredas comprenden principalmente zonas
+        rurales, aunque en ocasiones puede contener un centro microurbano. Comúnmente una vereda posee, entre 50 y 1200
+        habitantes aunque en algunos lugares podría variar dependiendo de su posición y concentración geográfica.2​
+
+        Las veredas se conformaron a partir del aglutinamiento de la población rural cercana a los caminos veredales que
+        cruzaban los territorios municipales y que servían de comunicación entre varios municipios; estos asentamientos
+        en algunos casos quedaron con población dispersa y en otros formaron caseríos. Por esta razón los municipios les
+        han dado a las veredas la categoría de división territorial de carácter administrativo, agrupadas en
+        corregimientos. En Colombia pueden contarse unas 30 mil veredas, que albergan la cuarta parte de la población
+        nacional.2​</p>
+    </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="{{home.0.imagen_parallax2.url}}"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+{% include "home/footer.html" %}
+
+</html>

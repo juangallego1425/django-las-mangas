@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como llegar y estado de las vias</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    {% include "home/navbar.html" %}
+    <style>
+        .activator {
+            width: 100%;
+            height: 15vw;
+            object-fit: cover;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="col z-depth-1 card-panel">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.9053214972714!2d-75.64469393459191!3d4.786275892240711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e38868b670ee183%3A0x7c7afdd29ca49f26!2sLAS%20MANGAS%2C%20Santa%20Rosa%20de%20Cabal%2C%20Risaralda!5e0!3m2!1ses!2sco!4v1619064647292!5m2!1ses!2sco"
+            width="1300" height="500" style="border: 1px;;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    {% if vias %}
+    <div class="row">
+        {% for via in vias %}
+
+        <div class="col l4">
+            <div class=" card  light-blue lighten-4">
+                <span class="card-title activator black-text text-darken-4">&nbsp&nbsp{{via.titulo}}</span>
+                <div class="card-image waves-effect waves-block waves-light card light-blue lighten-3">
+                    <img class="responsive-img" src="{{ via.imagen_via.url}}">
+                    <span class="black-text text-darken-7">{{via.descripcion}}</span>
+                </div>
+                <a href="/vias/{{via.id}}/">
+                    <button class="btn waves-effect blue">Ver Comentarios
+
+
+                    </button>
+                </a>
+
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+    {% else %}
+    <H2>NO HAY VIAS PARA MOSTRAR.</H2>
+    {% endif %}
+
+</body>
+{% include "home/footer.html" %}
+
+</html>

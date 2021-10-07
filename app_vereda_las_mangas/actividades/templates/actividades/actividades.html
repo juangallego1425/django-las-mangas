@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actividades turisticas</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  {% include "home/navbar.html" %}
+  <style>
+    .activator {
+      width: 100%;
+      height: 15vw;
+      object-fit: cover;
+    }
+  </style>
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+       var elems = document.querySelectorAll('.slider');
+       var options = "";
+       var instances = M.Slider.init(elems, options);
+      });
+  </script>
+
+</head>
+
+<body>
+  {% if actividades %}
+  <div class="row">
+    {% for actividad in actividades %}
+    <div class="col s12 m6">
+      <div class="card-panel teal">
+        <div class="slider">
+          <ul class="slides">
+            {% for imagen in actividad.imagenes_set.all %}
+            {% if imagen.imagen_url.url %}
+            <li>
+              <img class="responsive-img" src="{{ imagen.imagen_url.url}}">
+            </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        
+        <h5>{{actividad.titulo}}</h5>
+        <br/>
+        <span class="black-text">{{actividad.descripcion}}</span>
+        <br/>
+        <br/>
+        <span class="black-text">Contacto: {{actividad.contacto}}</span>
+      </div>
+    </div>
+    
+    {% endfor %}
+
+  </div>
+  {% else %}
+  <H2>NO HAY ACTIVIDADES TURISTICAS DISPONIBLES.</H2>
+  {% endif %}
+</body>
+
+{% include "home/footer.html" %}
+
+</html>

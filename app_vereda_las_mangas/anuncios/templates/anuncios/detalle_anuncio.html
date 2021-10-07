@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anuncios</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  {% include "home/navbar.html" %}
+  <style>
+    .activator {
+      width: 100%;
+      height: 15vw;
+      object-fit: cover;
+    }
+    .detalle {
+     padding-left: 50px;
+     padding-right: 50px;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.slider');
+      var options = "";
+      var instances = M.Slider.init(elems, options);
+    });
+  </script>
+
+</head>
+
+<body>
+  <br>
+  {% if anuncio.titulo %}
+  <div class="detalle">
+    <h2>
+      {{anuncio.titulo}}
+    </h2>
+  </div>
+  {% endif %}
+  <div class="slider">
+    <ul class="slides">
+
+      {% if anuncio.imagen1 %}
+      <li>
+        <img class="responsive-img" src="{{ anuncio.imagen1.url}}">
+      </li>
+      {% endif %}
+      {% if anuncio.imagen2 %}
+      <li>
+        <img class="responsive-img" src="{{ anuncio.imagen2.url}}">
+
+      </li>
+
+      {% endif %}
+      {% if anuncio.imagen3 %}
+      <li>
+        <img class="responsive-img" src="{{ anuncio.imagen3.url}}">
+
+      </li>
+      {% endif %}
+      {% if anuncio.imagen4 %}
+      <li>
+        <img class="responsive-img" src="{{ anuncio.imagen4.url}}">
+
+      </li>
+      {% endif %}
+      {% if anuncio.imagen5 %}
+      <li>
+        <img class="responsive-img" src="{{ anuncio.imagen5.url}}">
+
+      </li>
+      {% endif %}
+
+
+
+    </ul>
+  </div>
+
+
+  {% if anuncio.descripcion %}
+  <div class="detalle">
+    <p>
+      {{anuncio.descripcion}}
+    </p>
+  </div>
+  {% endif %}
+
+
+
+</body>
+{% include "home/footer.html" %}
+
+</html>

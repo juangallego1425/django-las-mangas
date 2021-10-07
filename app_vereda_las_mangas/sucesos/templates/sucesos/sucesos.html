@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sucesos</title>
+
+ 
+      <script type = "text/javascript"src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type = "text/javascript"src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+
+
+  {% include "home/navbar.html" %}
+  <style>
+    .activator {
+      width: 100%;
+      height: 15vw;
+      object-fit: cover;
+    }
+  </style>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.collapsible');
+      var instances = M.Collapsible.init(elems, options);
+      //var instance = M.Collapsible.getInstance(elem);
+    });
+
+    // Or with jQuery
+
+    $(document).ready(function () {
+      $('.collapsible').collapsible();
+    });
+
+
+  </script>
+
+</head>
+
+<body>
+  <div>
+    <h5 class="center-align card-panel teal lighten-2">Sucesos Importantes</h5>
+  </div>
+
+
+
+  {% if ultimo_suceso %}
+
+  {% for sucesos in ultimo_suceso %}
+
+  <ul class="collapsible popout" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header">
+        <i class="material-icons">filter_drama</i>{{ sucesos.titulo }}
+      </div>
+      <div class="collapsible-body">
+        <p>{{ sucesos.descripcion }}</p>
+      </div>
+    </li>
+
+
+
+
+    {% endfor %}
+
+
+    {% else %}
+    <H2>NO HAY SUCESOS.</H2>
+    {% endif %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+{% include "home/footer.html" %}
+
+</html>

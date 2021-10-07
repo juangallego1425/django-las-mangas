@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puntos de Interes</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  {% include "home/navbar.html" %}
+  <style>
+    .activator {
+      width: 100%;
+      height: 15vw;
+      object-fit: cover;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.scrollspy');
+      var options = "";
+      var instances = M.ScrollSpy.init(elems, options);
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+       var elems = document.querySelectorAll('.slider');
+       var options = "";
+       var instances = M.Slider.init(elems, options);
+      });
+  </script>
+
+</head>
+
+<body>
+  {% if interes %}
+  <br/>
+  <div class="row">
+    <div class="col s9 offset-s1" >
+      {% for intere in interes %}
+      <div class="row teal lighten-4" style="padding-left: 30px; padding-right: 30px; padding-bottom: 30px">
+        <div id="{{intere.id}}" class="section scrollspy">
+          <h5 class="center-align s10 push-s1 pull-s1 card-panel teal lighten-1" style="color: white; font-weight: bold;">{{intere.titulo}} </h5>
+          <div class="col s5 push-s7" style="font-size: 20px;">{{intere.descripcion}}</div>
+          <div class="slider col s7 pull-s5">
+              <ul class="slides">
+                {% for imagen in intere.imagenes_set.all %}
+                {% if imagen.imagen_url.url %}
+                <li>
+                  <img class="responsive-img" src="{{imagen.imagen_url.url}}">
+                </li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+          </div>
+        </div>
+      </div>
+      <br/>
+      {% endfor %}
+    </div>
+    <div class="col hide-on-small-only m3 l2">
+      <div class="toc-wrapper pinned" style="top: 300px;">
+          <div class="buysellads hide-on-small-only">
+            <ul class="section table-of-contents">
+              {% for intere in interes %}
+              <li><a href="#{{intere.id}}" style="font-size: 20px;">{{intere.titulo}}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+      </div>
+    </div>
+
+  </div>
+  {% else %}
+  <H2>NO HAY PUNTOS DE INTERES POR MOSTRAR.</H2>
+  {% endif %}
+</body>
+
+{% include "home/footer.html" %}
+
+</html>
