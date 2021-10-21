@@ -14,9 +14,10 @@ class Comentario_via(forms.ModelForm):
     class Meta:
         
         model= Comentario
-        fields= ["titulo","fecha","descripcion" ]
+        fields= ["via_id","titulo","fecha","descripcion" ]
         
         widgets = {
+            'via_id':forms.HiddenInput(),
             'titulo':forms.TextInput(attrs={'class': 'input'}),
             'fecha': DateTimeInput(attrs={'class': 'form-control'})  
         }

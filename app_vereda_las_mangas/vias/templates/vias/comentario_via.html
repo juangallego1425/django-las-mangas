@@ -45,14 +45,19 @@
 </head>
 
 <body>
+
+
   <div class="row">
+    {%for c in comentarios%}
     <div class="col s7">
       <div class="card-panel teal">
-        <span class="card-title"> Title Comentario</span><br>
-        <span class="white-text">Descripcion comentario</span>
+        <span class="card-title"> {{c.titulo}}</span><br>
+        <span class="white-text">{{c.descripcion}}</span>
       </div>
     </div>
-
+  
+  {% endfor %}
+  
     <div class="col s5">
       <div class="card  indigo lighten-5 ">
         <div class="card-content red-text">

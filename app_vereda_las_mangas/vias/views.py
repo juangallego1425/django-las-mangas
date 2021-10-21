@@ -16,12 +16,15 @@ def vias(request):
 
 def comentario(request, via_id):
     home = Home.objects.all
+    comentarios = Comentario.objects.filter(via_id=via_id).order_by('-fecha')
     data = {
-        'form': Comentario_via(),
+        'form': Comentario_via(initial={'via_id': via_id}),
          'home': home,
+         'comentarios': comentarios,
     }
     if request.method == 'POST':
         formulario = Comentario_via(data=request.POST)
+        
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "Enviado"
@@ -31,13 +34,12 @@ def comentario(request, via_id):
 
 
 def listar(request):
-    home = Home.objects.all
-    vistacoment = Comentario.object.all()
+    
+    vistacomentario = Comentario.object.all()
     data = {
-        'vistacoment': vistacoment,
-        'home': home,
+        'vistacomentario': vistacomentario,
     }
-    return render(request, "vias/comentario_via.html", data,)
+    return render(request, "vias/lista.html", data,)
 
 
 """ 

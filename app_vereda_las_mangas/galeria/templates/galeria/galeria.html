@@ -84,24 +84,21 @@
 
 <body>
     <br>
-    
+
     {% if galeria %}
     <main class="container">
         <div class="row galeria">
             {% for galeri in galeria %}
 
-            <!--         <div class="row">
-            <div class="col s12 center-align">
-                <h1 class="titulo">Galeria</h1>
-            </div>
-        </div> -->
+
 
 
             <div class="col s12 m4 l3">
                 <div class="material-placeholder">
                     {% for imagen in galeri.imagenes_set.all %}
                     {% if imagen.imagen_url.url %}
-                    <img src="{{ imagen.imagen_url.url}}" alt="" class="responsive-img materialboxed">
+                    <img class="responsive-img" src="{{ imagen.imagen_url.url}}" alt=""
+                        class="responsive-img materialboxed">
                     {% endif %}
                     {% endfor %}
 

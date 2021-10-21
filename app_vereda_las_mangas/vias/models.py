@@ -12,7 +12,7 @@ class Via(models.Model):
         return self.titulo
     
 class Comentario(models.Model):
-    via_id = models.ForeignKey('vias.Via', on_delete=models.CASCADE, blank=True, null=True)
+    via_id = models.ForeignKey('vias.Via', on_delete=models.CASCADE, blank=False, null=False)
     titulo = models.CharField(max_length=200)
     fecha = models.DateTimeField('date published')
     descripcion= models.CharField(max_length=200)
