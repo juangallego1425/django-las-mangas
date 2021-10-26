@@ -14,7 +14,7 @@
   {% include "home/navbar.html" %}
   <style>
     .activator {
-      width: 100%;
+      width: 50px;
       height: 15vw;
       object-fit: cover;
     }
@@ -38,12 +38,12 @@
 <body>
   {% if interes %}
   <br/>
-  <div class="row">
-    <div class="col s9 offset-s1" >
+  <div class="row ">
+    <div class="col s9 offset-s1 "  >
       {% for intere in interes %}
-      <div class="row teal lighten-4" style="padding-left: 30px; padding-right: 30px; padding-bottom: 30px">
+      <div class="row  light-blue lighten-4" style="padding-left: 30px; padding-right: 30px; padding-bottom: 30px; color:black; text-align: justify">
         <div id="{{intere.id}}" class="section scrollspy">
-          <h5 class="center-align s10 push-s1 pull-s1 card-panel teal lighten-1" style="color: white; font-weight: bold;">{{intere.titulo}} </h5>
+          <h5 class="center-align s10 push-s1 pull-s1 card-panel light-blue darken-4" style="color: white; font-weight: bold;">{{intere.titulo}} </h5>
           <div class="col s5 push-s7" style="font-size: 20px;">{{intere.descripcion}}</div>
           <div class="slider col s7 pull-s5">
               <ul class="slides">

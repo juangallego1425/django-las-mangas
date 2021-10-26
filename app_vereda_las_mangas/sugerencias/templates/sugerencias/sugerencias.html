@@ -21,7 +21,7 @@
 
     .row {
       padding-left: 380px;
-     
+
     }
   </style>
 
@@ -30,26 +30,26 @@
 
 <body>
 
-  <form action="" class="Fomulario" method="POST">
-    <div class="row">
-      <div class="col s4 m7">
-        <div class="card blue lighten-4">
-          <div class="card-content black-text">
-            <form action="" class="Fomulario" method="POST">
-              {% csrf_token %}
-              {{form}}
-              <input type="submit" class="btn btn-primary" name="enviar" id="enviar" value="Enviar">
+  <div>
+    <div class="col s5 m5 l5" style="width: 100%; max-width: 600px;margin: 0 auto;display: flex; flex-direction: column; justify-content: center;
+      align-items: center;">
+      <div class="card  green accent-1 ">
+        <div class="card-content text-red">
+          <form action="" class="Fomulario" method="POST">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" class="btn btn-primary" name="enviar" id="enviar" value="Enviar">
 
-            </form>
-          </div>
+          </form>
         </div>
       </div>
     </div>
+  </div>
 
-  </form>
+
 </body>
+<!-- blue lighten-4 -->
 
 
-{% include "home/footer.html" %}
 
 </html>
