@@ -24,6 +24,11 @@
       height: 15vw;
       object-fit: cover;
     }
+
+    span.fecha {
+      text-align: right;
+
+    }
   </style>
   <script>
 
@@ -53,8 +58,9 @@
 
         <div class="col s12">
           <div class="card-panel teal">
-            <span class="card-title"> {{c.titulo}}</span><br>
-            <span class="white-text">{{c.descripcion}}</span>
+            <h5> {{c.titulo}}</h5><br>
+            <span>{{c.descripcion}}</span><br>
+            <span class="fecha">{{c.fecha}}</span>
           </div>
         </div>
       </div>
@@ -84,4 +90,5 @@
 
 </body>
 {% include "home/footer.html" %}
+
 </html>

@@ -90,15 +90,11 @@
         <div class="row galeria">
             {% for galeri in galeria %}
 
-
-
-
             <div class="col s12 m4 l3">
                 <div class="material-placeholder">
                     {% for imagen in galeri.imagenes_set.all %}
                     {% if imagen.imagen_url.url %}
-                    <img class="responsive-img" src="{{ imagen.imagen_url.url}}" alt=""
-                        class="responsive-img materialboxed">
+                    <img src="{{ imagen.imagen_url.url}}" alt="" class="responsive-img materialboxed">
                     {% endif %}
                     {% endfor %}
 

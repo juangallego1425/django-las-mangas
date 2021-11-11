@@ -41,11 +41,3 @@ def listar(request):
     }
     return render(request, "vias/lista.html", data,)
 
-
-""" 
-def listar(request, comentario_id):
-    home = Home.objects.all
-    listar = get_object_or_404(Comentario, pk=comentario_id)
-    return render(request, 'anuncios/detalle_anuncio.html', {'listar': listar, 'home': home})
-    
-"""
