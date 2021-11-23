@@ -39,22 +39,14 @@
         <div class="col l4">
             <div class=" card-panel blue-grey lighten-4">
                 <h4>{{via.titulo}}</h4>
-                <div>
-                    <img class="responsive-img" src="{{ via.imagen_via.url}}">
-                </div>
+                <div><img class="responsive-img" src="{{ via.imagen_via.url}}"></div>
                 <blockquote>
                     {{via.descripcion}}
                 </blockquote>
-
                 <a href="/vias/{{via.id}}/">
-                    <button class="btn waves-effect blue text black" >Ver Comentarios
-
-
-                    </button>
+                    <button class="btn waves-effect blue text black">Ver Comentarios</button>
                 </a>
-
             </div>
-
         </div>
         {% endfor %}
 
